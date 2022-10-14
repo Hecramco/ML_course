@@ -30,3 +30,5 @@ def build_poly(x, degree):
             new_column = new_column[:, np.newaxis]
             tx = np.append(tx, new_column, axis=1)
     return tx 
+
+#################################

@@ -24,8 +24,10 @@ def ridge_regression(y, tx, lambda_):
     array([0.03947092, 0.00319628])
     """
     # ***************************************************
-    # COPY YOUR CODE FROM EX03 HERE
-    # ridge regression: TODO
+    w = np.zeros(tx.shape[1])              # This is a D,1 vector 
+    gram_ridge = np.dot(np.transpose(tx), tx) + 2*lambda_*np.identity(w.shape[0])*tx.shape[0]
+    w = np.linalg.solve(gram_ridge, np.dot(np.transpose(tx),y))
+    return w
     # ***************************************************
-    raise NotImplementedError
+  #  raise NotImplementedError
 
