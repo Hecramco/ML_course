@@ -21,7 +21,17 @@ def build_poly(x, degree):
     # ***************************************************
     # COPY YOUR CODE FROM EX03 HERE
     # polynomial basis function: TODO
-    # this function should return the matrix formed
-    # by applying the polynomial basis to the input data
+    num_samples = x.shape[0]
+    tx = np.c_[np.ones(num_samples), x]
+    degree = degree + 1
+    
+    for j in range(degree):
+        if j > 1:
+            new_column = np.array(np.power(tx[:,1],j) )
+            new_column = np.transpose(new_column)
+            new_column = new_column[:, np.newaxis]
+            tx = np.append(tx, new_column, axis=1)
+    return tx 
+   
     # ***************************************************
-    raise NotImplementedError
+    #raise NotImplementedError
